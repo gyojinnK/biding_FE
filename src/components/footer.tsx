@@ -34,7 +34,7 @@ const Footer: React.FC<TFooter> = ({}) => {
             </ul>
           </div>
           <p className="text-sm font-normal">
-            본 서비스는 실제 서비스되지 않습니다.
+            본 애플리케이션 Biding은 실제 서비스되지 않습니다.
           </p>
           <div className="flex gap-4 items-center">
             <GitHubLogoIcon className="w-8 h-8" />
