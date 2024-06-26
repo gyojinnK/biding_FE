@@ -11,6 +11,9 @@ import { GlobalAlertDialog } from "@/components/ui/alert-dialog";
 export const metadata: Metadata = {
   title: "Biding | Home",
   description: "중고상품 거래 및 경매 플랫폼",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 const pretendard = localFont({
