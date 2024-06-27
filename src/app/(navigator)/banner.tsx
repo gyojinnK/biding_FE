@@ -1,4 +1,6 @@
+import Logo from "@/components/logo";
 import Container from "@/components/ui/container";
+import { getAnimationProps } from "@/lib/utils/get-animation-props";
 import React from "react";
 
 type TBanner = {};
@@ -6,7 +8,7 @@ type TBanner = {};
 const Banner: React.FC<TBanner> = ({}) => {
   return (
     <section className="bg-primary text-primary-foreground">
-      <Container className="flex flex-col gap-6 py-40 items-center">
+      <Container className="flex flex-col gap-6 py-20 items-center">
         <span
           className="text-4xl font-bold"
           data-aos="fade-up"
@@ -15,7 +17,7 @@ const Banner: React.FC<TBanner> = ({}) => {
           data-aos-once="true"
           data-aos-delay="300"
         >
-          코드스테이션의, 코드스테이션에 의한, 코드스테이션을 위한
+          " 멈춰버린 가치에 새로운 가치를 "
         </span>
         <h1
           className="text-6xl font-black"
@@ -23,10 +25,16 @@ const Banner: React.FC<TBanner> = ({}) => {
           data-aos-easing="ease-out"
           data-aos-duration="500"
           data-aos-once="true"
-          data-aos-delay="600"
+          data-aos-delay="500"
         >
-          NEXTJS Boilerplate
+          중고물품 경매 플랫폼
         </h1>
+        <div
+          className="bg-primary-foreground w-full flex justify-center items-center"
+          {...getAnimationProps("up", 500, 700)}
+        >
+          <Logo className="p-4" logoWidth={200} logoHeight={76} />
+        </div>
       </Container>
     </section>
   );

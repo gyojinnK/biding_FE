@@ -16,20 +16,17 @@ const Header: React.FC<THeader> = ({}) => {
             <Logo />
           </Link>
           <div className="flex gap-4 items-center">
-            <Link href={"/colors"}>
-              <Button variant={"link"}>Colors</Button>
+            <Link href={"/service"}>
+              <Button variant={"link"}>서비스 소개</Button>
             </Link>
-            <Link href={"/seo"}>
-              <Button variant={"link"}>SEO</Button>
+            <Link href={"/goods"}>
+              <Button variant={"link"}>상품목록</Button>
             </Link>
-            <Link href={"/favicon"}>
-              <Button variant={"link"}>Favicon</Button>
+            <Link href={"/auctions"}>
+              <Button variant={"link"}>경매목록</Button>
             </Link>
-            <Link href={"/utilities"}>
-              <Button variant={"link"}>Utilities</Button>
-            </Link>
-            <Link href={"/examples"}>
-              <Button variant={"link"}>Examples</Button>
+            <Link href={"/login"}>
+              <Button variant={"link"}>로그인/회원가입</Button>
             </Link>
             <ThemeSwitcher />
           </div>
