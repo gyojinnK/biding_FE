@@ -16,9 +16,9 @@ const TodayAuctionCard: React.FC<TTodayAuctionCard> = ({
   return (
     <div className="">
       <div className="flex items-center gap-2 pb-4">
-        {exampleGoods.tags.map((tag) => (
+        {exampleGoods.tags.map((tag, idx) => (
           <Badge
-            key={exampleGoods.id}
+            key={idx}
             className="bg-muted-foreground text-background cursor-default"
           >
             <TagIcon className="w-3 h-3 text-background mr-1" />
