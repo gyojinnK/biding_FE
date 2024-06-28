@@ -3,10 +3,15 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { Toaster } from "@/components/ui/toaster";
 import Providers from "@/components/providers/providers";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 import Loading from "@/components/ui/loading";
 import { GlobalAlertDialog } from "@/components/ui/alert-dialog";
+
+// /login - 로그인
+// /me - 마이페이지
+// /goods - 상품페이지 (카테고리 뎁스 생각하기)
+// /products - 상품 등록하기
+// /auctions
+// /chatings
 
 export const metadata: Metadata = {
   title: "Biding | Home",

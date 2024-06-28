@@ -4,6 +4,7 @@ import React from "react";
 import { CardType } from "../types";
 import { TExampleGoods } from "./page";
 import TodayAuctionCard from "./today-auction-card";
+import { getAnimationProps } from "@/lib/utils/get-animation-props";
 
 type TTodayAuction = {
   exampleGoods: TExampleGoods;
@@ -11,7 +12,7 @@ type TTodayAuction = {
 
 const TodayAuction: React.FC<TTodayAuction> = ({ exampleGoods }) => {
   return (
-    <section>
+    <section {...getAnimationProps("fade", 500, 100)}>
       <Container className="rounded-2xl p-4 bg-muted">
         <div className="text-md flex justify-between items-start pb-2">
           <p className="font-semibold text-2xl">오늘의 경매</p>

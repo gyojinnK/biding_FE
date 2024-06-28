@@ -43,7 +43,13 @@ const TodayAuctionCard: React.FC<TTodayAuctionCard> = ({
           />
           <span className="font-medium text-sm text-muted-foreground">
             경매시작가{" "}
-            <p className="inline-block text-primary">{exampleGoods.price}원</p>
+            <p className="inline-block text-primary">
+              {exampleGoods.price.replace(
+                /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,
+                ","
+              )}
+              원
+            </p>
           </span>
         </div>
         <div className="">
