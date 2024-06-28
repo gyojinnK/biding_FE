@@ -17,7 +17,7 @@ const Banner: React.FC<TBanner> = ({}) => {
           data-aos-once="true"
           data-aos-delay="300"
         >
-          " 멈춰버린 가치에 새로운 가치를 "
+          &ldquo; 멈춰버린 가치에 새로운 가치를 &rdquo;
         </span>
         <h1
           className="text-6xl font-black"
