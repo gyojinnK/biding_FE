@@ -3,6 +3,7 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Table, TableBody, TableCell, TableRow } from "./ui/table";
 import Link from "next/link";
 import { Bars3Icon } from "@heroicons/react/24/outline";
+import ThemeSwitcher from "./theme-switcher";
 
 const HeaderHamburger = () => {
   return (
@@ -51,6 +52,7 @@ const HeaderHamburger = () => {
               </TableRow>
             </TableBody>
           </Table>
+          <ThemeSwitcher className="fixed bottom-4 right-4" />
         </SheetContent>
       </Sheet>
     </div>

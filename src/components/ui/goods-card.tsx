@@ -28,7 +28,7 @@ const GoodsCard: React.FC<TGoodsCard> = ({ type, goods }) => {
           <Separator className="w-full" />
         </CardHeader>
         <CardContent className="p-4 pt-0">
-          <p className="text-xs text-muted-foreground mb-2">{goods.category}</p>
+          <p className="text-xs text-muted-foreground my-2">{goods.category}</p>
           <div className="">
             <p className="font-bold">{goods.title}</p>
             <p className="text-xs text-muted-foreground">{goods.description}</p>

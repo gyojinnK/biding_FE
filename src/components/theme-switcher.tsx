@@ -4,8 +4,9 @@ import { useTheme } from "next-themes";
 import { SunIcon } from "@heroicons/react/24/outline";
 import { MoonIcon } from "@heroicons/react/24/outline";
 import { Switch } from "./ui/switch";
+import { cn } from "@/lib/utils";
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = ({ className }: { className?: string }) => {
   const { systemTheme, theme, setTheme } = useTheme();
 
   const renderThemeChanger = () => {
@@ -14,7 +15,7 @@ const ThemeSwitcher = () => {
     if (currentTheme !== "dark") {
       return (
         <SunIcon
-          className="w-6 h-6 text-yellow-600 "
+          className="w-6 h-6 text-yellow-600"
           role="button"
           onClick={() => setTheme("light")}
         />
@@ -31,7 +32,7 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className={cn("flex items-center gap-2", className)}>
       <Switch
         onClick={() => {
           const currentTheme = theme === "system" ? systemTheme : theme;
