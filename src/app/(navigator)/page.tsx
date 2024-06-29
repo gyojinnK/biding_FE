@@ -152,7 +152,7 @@ export default function Home() {
   return (
     <>
       <Container className="pb-20">
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 max-md:gap-8">
           <Banner />
           <TodayAuctionSection exampleGoods={exampleGoods} />
           <RecentAuction exampleGoodsList={exampleGoodsList} />

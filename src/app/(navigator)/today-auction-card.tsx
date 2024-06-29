@@ -15,17 +15,20 @@ const TodayAuctionCard: React.FC<TTodayAuctionCard> = ({
 }) => {
   return (
     <div className="">
-      <div className="flex items-center gap-2 pb-4">
+      <div className="flex items-center gap-2 max-md:gap-1 pb-2 max-md:hidden">
         {exampleGoods.tags.map((tag, idx) => (
           <Badge
             key={idx}
-            className="bg-muted-foreground text-background cursor-default"
+            className="bg-muted-foreground text-background max-md:text-[8px] cursor-default"
           >
-            <TagIcon className="w-3 h-3 text-background mr-1" />
-            {tag}
+            <TagIcon className="w-3 h-3 text-background mr-1 max-md:hidden" />
+            <p className="md:hidden mr-1">#</p> {tag}
           </Badge>
         ))}
       </div>
+      <p className="text-muted-foreground text-xs pb-2">
+        {exampleGoods.category}
+      </p>
       <div className="w-full py-32 relative ">
         <Image
           src="/images/example-goods-image.jpg"
@@ -35,11 +38,13 @@ const TodayAuctionCard: React.FC<TTodayAuctionCard> = ({
         />
       </div>
       <div className="flex justify-between items-center pt-4">
-        <div className="flex items-center gap-2">
-          <p className="font-bold text-3xl">{exampleGoods.title}</p>
+        <div className="flex max-md:flex-col max-md:items-start items-center gap-2 max-md:gap-0">
+          <p className="font-bold text-3xl max-md:text-xl">
+            {exampleGoods.title}
+          </p>
           <Separator
             orientation="vertical"
-            className="h-5 bg-muted-foreground"
+            className="h-5 bg-muted-foreground max-md:hidden"
           />
           <span className="font-medium text-sm text-muted-foreground">
             경매시작가{" "}

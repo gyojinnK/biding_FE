@@ -12,7 +12,7 @@ type TFooter = {};
 const Footer: React.FC<TFooter> = ({}) => {
   const router = useRouter();
   return (
-    <footer className="bg-muted">
+    <footer className="bg-muted max-md:px-4">
       <Container className="flex py-10 justify-between items-start">
         <div className="flex flex-col items-start gap-4 text-muted-foreground">
           <Logo logoWidth={70} logoHeight={27} />

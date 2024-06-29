@@ -4,18 +4,19 @@ import Container from "./ui/container";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import ThemeSwitcher from "./theme-switcher";
+import HeaderHamburger from "./header-hamburger";
 
 type THeader = {};
 
 const Header: React.FC<THeader> = ({}) => {
   return (
-    <header className="py-4 sticky top-0 bg-background z-50 shadow-sm">
+    <header className="py-4 sticky top-0 bg-background z-50 shadow-sm max-md:px-4">
       <Container>
         <div className="w-full flex justify-between items-center">
           <Link href={"/"}>
             <Logo />
           </Link>
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 items-center max-md:hidden">
             <Link href={"/service"}>
               <Button variant={"link"}>서비스 소개</Button>
             </Link>
@@ -30,6 +31,7 @@ const Header: React.FC<THeader> = ({}) => {
             </Link>
             <ThemeSwitcher />
           </div>
+          <HeaderHamburger />
         </div>
       </Container>
     </header>

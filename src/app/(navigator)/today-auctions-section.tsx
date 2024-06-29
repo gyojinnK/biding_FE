@@ -12,7 +12,7 @@ type TTodayAuction = {
 
 const TodayAuction: React.FC<TTodayAuction> = ({ exampleGoods }) => {
   return (
-    <section {...getAnimationProps("fade", 500, 100)}>
+    <section {...getAnimationProps("fade", 500, 100)} className="max-md:px-4">
       <Container className="rounded-2xl p-4 bg-muted">
         <div className="text-md flex justify-between items-start pb-2">
           <p className="font-semibold text-2xl">오늘의 경매</p>

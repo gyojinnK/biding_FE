@@ -12,7 +12,7 @@ type TRecentAuction = {
 
 const RecentAuction: React.FC<TRecentAuction> = ({ exampleGoodsList }) => {
   return (
-    <section>
+    <section className="max-md:px-4">
       <Container>
         <div
           className="text-md flex justify-between items-center pb-4 "
@@ -23,7 +23,7 @@ const RecentAuction: React.FC<TRecentAuction> = ({ exampleGoodsList }) => {
             + 더보기
           </Link>
         </div>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-4 grid-cols-1 gap-4">
           {exampleGoodsList.map((goods, idx) => (
             <div
               key={`goods${goods.id}`}

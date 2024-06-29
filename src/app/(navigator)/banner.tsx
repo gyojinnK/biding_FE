@@ -8,9 +8,9 @@ type TBanner = {};
 const Banner: React.FC<TBanner> = ({}) => {
   return (
     <section className="bg-primary text-primary-foreground">
-      <Container className="flex flex-col gap-6 py-20 items-center">
+      <Container className="flex flex-col gap-6 py-20 max-md:py-10 items-center">
         <span
-          className="text-4xl font-bold"
+          className="text-4xl max-md:text-xl font-bold"
           data-aos="fade-up"
           data-aos-easing="ease-out"
           data-aos-duration="500"
@@ -20,7 +20,7 @@ const Banner: React.FC<TBanner> = ({}) => {
           &ldquo; 멈춰버린 가치에 새로운 가치를 &rdquo;
         </span>
         <h1
-          className="text-6xl font-black"
+          className="text-6xl max-md:text-4xl font-black"
           data-aos="fade-up"
           data-aos-easing="ease-out"
           data-aos-duration="500"
