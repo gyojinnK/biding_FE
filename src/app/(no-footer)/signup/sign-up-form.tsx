@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,10 +16,11 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { getAnimationProps } from "@/lib/utils/get-animation-props";
-import { useRouter } from "next/navigation";
-import { useAction } from "@/hooks/use-action";
-import { TAddr } from "@/app/types";
+import { TAddr } from "@/app/types/types";
 import Script from "next/script";
+import { createUser } from "./actions";
+import { useAction } from "@/hooks/use-action";
+import { useRouter } from "next/navigation";
 
 type TSignUpForm = {};
 
@@ -27,69 +28,72 @@ const SignUpForm = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & TSignUpForm
 >((props, ref) => {
-  const [isCheck, setIsCheck] = useState<boolean>(false);
-  const [isEmailCodeModalOpen, setIsEmailCodeModalOpen] =
-    useState<boolean>(false);
-  const [isEmailAuthentication, setIsEmailAuthentication] =
-    useState<boolean>(false);
   const [checkPassword, setCheckPassword] = useState<boolean>(false);
-  //   const createUserAction = useAction(createUser);
   const router = useRouter();
-  const formSchema = z.object({
-    email: z
-      .string()
-      .regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, {
-        message: "이메일이 유효하지 않습니다.",
-      })
-      .min(2),
-    name: z.string(),
-    password: z
-      .string()
-      .regex(/^(?=.*[0-9])(?=.*[!@#$%^&*()])/, {
-        message: "비밀번호가 유효하지 않습니다.",
-      })
-      .min(3),
-    confirmPassword: z
-      .string()
-      .regex(/^(?=.*[0-9])(?=.*[!@#$%^&*()])/, {
-        message: "비밀번호가 유효하지 않습니다.",
-      })
-      .min(3),
-    phoneNumber: z.string(),
-    address: z.string(),
-    addressDetail: z.string(),
-  });
+  const createUserAction = useAction(createUser);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-  const checkEmailHandler = () => {
-    if (form.getValues("password") === form.getValues("confirmPassword")) {
-      setCheckPassword(true);
-    } else {
-      alert("비밀번호가 일치하지 않습니다.");
-    }
+  const formSchema = z
+    .object({
+      email: z
+        .string()
+        .regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, {
+          message: "이메일이 유효하지 않습니다.",
+        })
+        .min(2),
+      name: z.string(),
+      password: z
+        .string()
+        .regex(/^(?=.*[0-9])(?=.*[!@#$%^&*()])/, {
+          message: "비밀번호가 유효하지 않습니다.",
+        })
+        .min(3),
+      confirmPassword: z
+        .string()
+        .regex(/^(?=.*[0-9])(?=.*[!@#$%^&*()])/, {
+          message: "비밀번호가 유효하지 않습니다.",
+        })
+        .min(3),
+      phoneNumber: z.string(),
+      address: z.string(),
+      addressDetail: z.string(),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      path: ["confirmPassword"],
+      message: "비밀번호가 일치하지 않습니다.",
+    });
 
-    if (form.getValues("email") && checkPassword && isCheck) {
-      setIsEmailCodeModalOpen(true);
-    }
-  };
+  // const checkPasswordHandler = () => {
+  //   if (form.getValues("password") === form.getValues("confirmPassword")) {
+  //     setCheckPassword(true);
+  //   } else {
+  //     alert("비밀번호가 일치하지 않습니다. \n 비밀번호를 다시 확인해주세요.");
+  //     setCheckPassword(false);
+  //   }
+  // };
 
   const onSubmit = async () => {
     console.log("Pass!!");
     // add login logic
-    // const response = await createUserAction({
-    //   email: form.getValues("email"),
-    //   name: form.getValues("name"),
-    //   password: form.getValues("password"),
-    //   phoneNumber: form.getValues("phoneNumber"),
-    // });
+    const response = await createUserAction({
+      email: form.getValues("email"),
+      name: form.getValues("name"),
+      password: form.getValues("password"),
+      phoneNumber: form.getValues("phoneNumber"),
+      address: form.getValues("address"),
+      addressDetail: form.getValues("addressDetail"),
+    });
 
-    // console.log(response);
+    console.log(response?.data);
 
-    // if (response) {
-    //   alert("회원가입이 완료되었습니다.");
-    //   router.push("/login");
-    // } else {
-    //   alert("아이디 또는 비밀번호가 일치하지 않습니다.");
-    // }
+    if (response) {
+      alert("회원가입이 완료되었습니다.");
+      router.push("/login");
+    } else {
+      alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+    }
   };
 
   const form = useForm({
@@ -104,16 +108,6 @@ const SignUpForm = React.forwardRef<
       addressDetail: "",
     },
   });
-
-  const onClickAddr = () => {
-    new window.daum.Postcode({
-      oncomplete: function (data: TAddr) {
-        (document.getElementById("address") as HTMLInputElement).value =
-          data.address;
-        document.getElementById("addressDetail")?.focus();
-      },
-    }).open();
-  };
 
   return (
     <div ref={ref} {...props}>
@@ -213,7 +207,7 @@ const SignUpForm = React.forwardRef<
                   <Input
                     {...field}
                     id="phoneNumber"
-                    placeholder="010-1234-1234"
+                    placeholder='"-"를 제외하고 입력해주세요.'
                   />
                 </FormControl>
                 <FormMessage />
@@ -233,7 +227,14 @@ const SignUpForm = React.forwardRef<
                     {...field}
                     id="address"
                     placeholder="주소를 입력해주세요."
-                    onClick={onClickAddr}
+                    onClick={() => {
+                      new window.daum.Postcode({
+                        oncomplete: function (data: TAddr) {
+                          form.setValue("address", data.address);
+                          document.getElementById("addressDetail")?.focus();
+                        },
+                      }).open();
+                    }}
                     readOnly
                   />
                 </FormControl>
@@ -251,7 +252,6 @@ const SignUpForm = React.forwardRef<
                     {...field}
                     id="addressDetail"
                     placeholder="상세주소를 입력해주세요."
-                    onClick={onClickAddr}
                   />
                 </FormControl>
                 <FormMessage />

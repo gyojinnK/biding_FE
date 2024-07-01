@@ -1,7 +1,7 @@
 import Container from "@/components/ui/container";
 import Link from "next/link";
 import React from "react";
-import { CardType } from "../types";
+import { CardType } from "../types/types";
 import { TExampleGoods } from "./page";
 import TodayAuctionCard from "./today-auction-card";
 import { getAnimationProps } from "@/lib/utils/get-animation-props";

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,6 +21,10 @@ import Link from "next/link";
 type TLoginForm = {};
 
 const LoginForm: React.FC<TLoginForm> = ({}) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const router = useRouter();
   const formSchema = z.object({
     email: z
@@ -45,7 +49,22 @@ const LoginForm: React.FC<TLoginForm> = ({}) => {
     },
   });
 
-  const onSubmit = () => {};
+  const onSubmit = async () => {
+    const user = await signIn("credentials", {
+      email: form.getValues("email"),
+      password: form.getValues("password"),
+      redirect: false,
+    });
+
+    console.log(user);
+
+    if (user && user.ok) {
+      alert("로그인을 완료했습니다.");
+      router.push("/");
+    } else {
+      alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+    }
+  };
 
   return (
     <Form {...form}>

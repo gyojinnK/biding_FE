@@ -1,5 +1,5 @@
 import { TExampleGoods } from "@/app/(navigator)/page";
-import { CardType } from "@/app/types";
+import { CardType } from "@/app/types/types";
 import React from "react";
 import { Card, CardContent, CardFooter, CardHeader } from "./card";
 import Image from "next/image";

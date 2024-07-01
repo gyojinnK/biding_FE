@@ -1,5 +1,5 @@
 import React from "react";
-import { CardType } from "../types";
+import { CardType } from "../types/types";
 import { TExampleGoods } from "./page";
 import { Badge } from "@/components/ui/badge";
 import { ArrowTopRightOnSquareIcon, TagIcon } from "@heroicons/react/24/solid";
