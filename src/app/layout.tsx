@@ -5,6 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import Providers from "@/components/providers/providers";
 import Loading from "@/components/ui/loading";
 import { GlobalAlertDialog } from "@/components/ui/alert-dialog";
+import SessionProviders from "@/components/providers/session-provider";
+import ThemeSwitcher from "@/components/theme-switcher";
+import ThemeSwitcherHoverCard from "@/components/theme-switcher-hover-card";
 
 // /login - 로그인
 // /me - 마이페이지
@@ -37,10 +40,11 @@ export default function RootLayout({
     <html lang="ko" className={pretendard.variable} suppressHydrationWarning>
       <body className={pretendard.className}>
         <Providers>
-          <main>{children}</main>
+          <SessionProviders>{children}</SessionProviders>
           <Toaster />
           <Loading />
           <GlobalAlertDialog />
+          <ThemeSwitcherHoverCard />
         </Providers>
       </body>
     </html>

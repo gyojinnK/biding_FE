@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Logo from "./logo";
 import Container from "./ui/container";
@@ -5,10 +7,13 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import ThemeSwitcher from "./theme-switcher";
 import HeaderHamburger from "./header-hamburger";
+import { useSession } from "next-auth/react";
+import UserMenu from "./user-menu";
 
 type THeader = {};
 
 const Header: React.FC<THeader> = ({}) => {
+  const session = useSession();
   return (
     <header className="py-4 sticky top-0 bg-background z-50 shadow-sm max-md:px-4">
       <Container>
@@ -17,19 +22,22 @@ const Header: React.FC<THeader> = ({}) => {
             <Logo />
           </Link>
           <div className="flex gap-4 items-center max-md:hidden">
-            <Link href={"/service"}>
-              <Button variant={"link"}>서비스 소개</Button>
-            </Link>
             <Link href={"/goods"}>
               <Button variant={"link"}>상품목록</Button>
             </Link>
             <Link href={"/auctions"}>
               <Button variant={"link"}>경매목록</Button>
             </Link>
-            <Link href={"/login"}>
-              <Button variant={"link"}>로그인/회원가입</Button>
+            <Link href={"/service"}>
+              <Button variant={"link"}>서비스 소개</Button>
             </Link>
-            <ThemeSwitcher />
+            {session.data ? (
+              <UserMenu />
+            ) : (
+              <Link href={"/login"}>
+                <Button variant={"link"}>로그인/회원가입</Button>
+              </Link>
+            )}
           </div>
           <HeaderHamburger />
         </div>
