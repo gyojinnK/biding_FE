@@ -7,7 +7,7 @@ const ThemeSwitcherHoverCard = () => {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <div className="fixed bottom-4 right-4 rounded-full border border-primary bg-background">
+        <div className="fixed bottom-4 right-4 rounded-full border border-primary bg-background max-md:hidden">
           <ThemeSwitcher className=" p-2" />
         </div>
       </HoverCardTrigger>
