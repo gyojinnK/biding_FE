@@ -470,15 +470,11 @@ export const UserApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * 
-         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerGetById: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('usersControllerGetById', 'id', id)
-            const localVarPath = `/users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+        usersControllerGetById: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/users/me`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -489,6 +485,10 @@ export const UserApiAxiosParamCreator = function (configuration?: Configuration)
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication access-token required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -537,12 +537,11 @@ export const UserApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersControllerGetById(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetUserOutputDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.usersControllerGetById(id, options);
+        async usersControllerGetById(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetUserOutputDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.usersControllerGetById(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserApi.usersControllerGetById']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -577,12 +576,11 @@ export const UserApiFactory = function (configuration?: Configuration, basePath?
         },
         /**
          * 
-         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerGetById(id: string, options?: any): AxiosPromise<GetUserOutputDto> {
-            return localVarFp.usersControllerGetById(id, options).then((request) => request(axios, basePath));
+        usersControllerGetById(options?: any): AxiosPromise<GetUserOutputDto> {
+            return localVarFp.usersControllerGetById(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -618,13 +616,12 @@ export class UserApi extends BaseAPI {
 
     /**
      * 
-     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    public usersControllerGetById(id: string, options?: RawAxiosRequestConfig) {
-        return UserApiFp(this.configuration).usersControllerGetById(id, options).then((request) => request(this.axios, this.basePath));
+    public usersControllerGetById(options?: RawAxiosRequestConfig) {
+        return UserApiFp(this.configuration).usersControllerGetById(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
