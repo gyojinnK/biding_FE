@@ -1,43 +1,20 @@
-# NextJS Boilerplate
-> `NextJS Boilerplate`은 NextJS 프로젝트를 시작하기 위한 보일러플레이트
-## Features
-- [x] Design System
-- [ ] Authentication
-- [ ] Social Login
-- [x] Scroll Animation
-- [ ] SEO
-- [x] Color Scheme
-- [x] Dark Mode
-- [ ] Layout
-- [ ] Responsive Image
-- [x] File Uploader
-- [x] Favicon Generator
-- [ ] Sitemap Generator
-- [ ] Robots.txt Generator
-### Favicon
-- favicon.ico (16x16)
-- icon1.png (16x16)
-- icon2.png (32x32)
-- icon3.png (96x96)
-- apple-icon1.png (57x57)
-- apple-icon2.png (60x60)
-- apple-icon3.png (72x72)
-- apple-icon4.png (76x76)
-- apple-icon5.png (114x114)
-- apple-icon6.png (120x120)
-- apple-icon7.png (144x144)
-- apple-icon8.png (152x152)
-- apple-icon9.png (180x180)
-## Conventions
-### Naming
-- **Component**: kebab-case (file name), PascalCase (React component name)
-  - 모든 페이지 컴포넌트는 XxxPage와 같은 형식으로 이름을 지어주세요.
-- **Page**: kebab-case
-- **Variable**: camelCase
-- **Function**: camelCase
-- **File**: kebab-case
-- **Folder**: kebab-case
-- **CSS Class**: kebab-case
-- **CSS ID**: kebab-case
-- **CSS Variable**: kebab-case
+![biding-light-logo](https://github.com/user-attachments/assets/2543a6e8-d8a4-48fc-bb20-6171003110cc)
 
+# 프로젝트
+
+> 입찰하다의 “Bid”와 현재 진행을 뜻하는 “-ing”의 합성어로 가치를 잃은 물건을 입찰을 통해 가치를 계속한다는 의미의 중고 물품 경매 플랫폼 프로젝트 입니다.
+> 
+
+# 아카이브
+
+https://github.com/gyojinnK/biding_FE
+
+https://github.com/gyojinnK/biding_BE
+
+https://www.figma.com/design/eMl3BKgtPCdwWL3IfJd2d9/Project-Biding?node-id=0-1&t=bOtyITJx0H44VDzp-1
+
+[질의응답](https://www.notion.so/8c6c5ff0fa904ffebe37cc3d4cddfc4e?pvs=21)
+
+# 프로세스
+
+[제목 없는 데이터베이스](https://www.notion.so/e371c5ab09f642f6a023ae455e44a8ea?pvs=21)
