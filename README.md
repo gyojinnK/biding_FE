@@ -6,9 +6,7 @@
 > 
 
 # 아카이브
-[FE_repository](https://github.com/gyojinnK/biding_FE)
-[BE_repository](https://github.com/gyojinnK/biding_BE)
-[Design guide](https://www.figma.com/design/eMl3BKgtPCdwWL3IfJd2d9/Project-Biding?node-id=0-1&t=bOtyITJx0H44VDzp-1)
+[FE_repository](https://github.com/gyojinnK/biding_FE) | [BE_repository](https://github.com/gyojinnK/biding_BE) | [Design guide](https://www.figma.com/design/eMl3BKgtPCdwWL3IfJd2d9/Project-Biding?node-id=0-1&t=bOtyITJx0H44VDzp-1)
 
 # 프로세스
 
