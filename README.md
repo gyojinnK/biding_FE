@@ -3,6 +3,7 @@
 ![biding-light-logo](https://github.com/user-attachments/assets/2543a6e8-d8a4-48fc-bb20-6171003110cc)
 
 # 프로젝트 설명
+> [biding-market.vercel.app](biding-market.vercel.app)
 
 입찰하다의 “Bid”와 현재 진행을 뜻하는 “-ing”의 합성어로 가치를 잃은 물건을 입찰을 통해 가치를 계속한다는 의미의 중고 물품 경매 플랫폼 프로젝트 입니다.
 
