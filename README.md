@@ -6,15 +6,10 @@
 > 
 
 # 아카이브
-
-https://github.com/gyojinnK/biding_FE
-
-https://github.com/gyojinnK/biding_BE
-
-https://www.figma.com/design/eMl3BKgtPCdwWL3IfJd2d9/Project-Biding?node-id=0-1&t=bOtyITJx0H44VDzp-1
-
-[질의응답](https://www.notion.so/8c6c5ff0fa904ffebe37cc3d4cddfc4e?pvs=21)
+[FE_repository](https://github.com/gyojinnK/biding_FE)
+[BE_repository](https://github.com/gyojinnK/biding_BE)
+[Design guide](https://www.figma.com/design/eMl3BKgtPCdwWL3IfJd2d9/Project-Biding?node-id=0-1&t=bOtyITJx0H44VDzp-1)
 
 # 프로세스
 
-[제목 없는 데이터베이스](https://www.notion.so/e371c5ab09f642f6a023ae455e44a8ea?pvs=21)
+[Notion Database](https://www.notion.so/e371c5ab09f642f6a023ae455e44a8ea?pvs=21)
